@@ -1,0 +1,17 @@
+[package]
+version = "0.1.0"
+name = "sp1-helios-script"
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "vkey"
+path = "./bin/vkey.rs"
+
+[dependencies]
+sp1-sdk = { workspace = true }
+anyhow = { workspace = true }
+
+[build-dependencies]
+sp1-build = { workspace = true }
