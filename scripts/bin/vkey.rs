@@ -1,7 +1,7 @@
 use anyhow::Result;
 use sp1_sdk::{HashableKey, Prover, ProverClient};
 
-const HELIOS_ELF: &[u8] = include_bytes!("../../elf/sp1-helios-elf");
+const HELIOS_ELF: &[u8] = include_bytes!("../../elf/sp1-helios-program");
 
 fn main() -> Result<()> {
     let client = ProverClient::builder().cpu().build();
