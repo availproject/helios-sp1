@@ -1,9 +1,9 @@
 # Helios SP1 program
 
 
-## Build the program run:
+## Build the program from the program dir run:
 ```bash
-cargo build --release
+cargo prove build --docker --tag v4.0.0 --elf-name sp1-helios-elf --output-directory ../elf 
 ```
 
 ## To get the verification key run:

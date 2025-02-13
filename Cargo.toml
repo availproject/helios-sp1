@@ -12,9 +12,8 @@ sp1-helios-primitives = { path = "primitives" }
 
 
 # TODO use the latest release of the helios
-helios = { git = "https://github.com/a16z/helios", rev = "d35a0b7e776b6284cf3ec042f96df17ae90f0239" }
-helios-consensus-core = { git = "https://github.com/a16z/helios", rev = "d35a0b7e776b6284cf3ec042f96df17ae90f0239" }
-helios-ethereum = { git = "https://github.com/a16z/helios", rev = "d35a0b7e776b6284cf3ec042f96df17ae90f0239" }
+helios = { git = "https://github.com/a16z/helios", version = "0.8.0" }
+helios-consensus-core = { git = "https://github.com/a16z/helios", version = "0.8.0" }
 
 sp1-sdk = "4.0.0"
 sp1-build = "4.0.0"
