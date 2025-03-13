@@ -25,7 +25,7 @@ pub fn main() {
         mut store,
         genesis_root,
         forks,
-    } = serde_cbor::from_slice(&encoded_inputs).unwrap();
+    } = serde_cbor::from_slice(&encoded_inputs).expect("Failed to decode cbor");
 
     let start_sync_committee_hash = store.current_sync_committee.tree_hash_root();
     let prev_header: B256 = store.finalized_header.beacon().tree_hash_root();
