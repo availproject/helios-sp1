@@ -2,7 +2,7 @@
 
 ## Build the program from the program dir run:
 ```bash
-cd program && cargo prove build --elf-name sp1-helios-elf --docker --output-directory ../elf
+cd program && cargo prove build --elf-name sp1-helios-elf --docker --tag v5.2.1 --output-directory ../elf
 ```
 
 ## To get the verification key run:
