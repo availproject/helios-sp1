@@ -48,6 +48,16 @@ pub fn main() {
         apply_update(&mut store, update);
     }
 
+    assert!(
+        store.finalized_header.beacon().slot.is_multiple_of(32),
+        "New head is not a checkpoint slot."
+    );
+
+    assert!(
+        store.finalized_header.beacon().slot > prev_head,
+        "New head is not greater than previous head."
+    );
+
     // 2. Apply finality update
     let finality_update_is_valid = verify_finality_update(
         &finality_update,
@@ -71,7 +81,7 @@ pub fn main() {
         Some(next_sync_committee) => next_sync_committee.tree_hash_root(),
         None => B256::ZERO,
     };
-    let head = store.finalized_header.beacon().slot;
+    let new_head = store.finalized_header.beacon().slot;
 
     let proof_outputs = ProofOutputs {
         executionStateRoot: *store
@@ -81,7 +91,7 @@ pub fn main() {
             .state_root(),
         newHeader: header,
         nextSyncCommitteeHash: next_sync_committee_hash,
-        newHead: U256::from(head),
+        newHead: U256::from(new_head),
         prevHeader: prev_header,
         prevHead: U256::from(prev_head),
         syncCommitteeHash: sync_committee_hash,
