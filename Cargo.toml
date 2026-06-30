@@ -12,9 +12,9 @@ sp1-helios-primitives = { path = "primitives" }
 
 helios-consensus-core = { git = "https://github.com/a16z/helios", tag = "0.10.2" }
 
-sp1-sdk = "6.3.0"
-sp1-build = "6.3.0"
-sp1-zkvm = "6.3.0"
+sp1-sdk = "6.3.1"
+sp1-build = "6.3.1"
+sp1-zkvm = "6.3.1"
 
 serde = { version = "1.0.203" }
 serde_cbor = "0.11.2"

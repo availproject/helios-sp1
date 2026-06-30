@@ -6,7 +6,7 @@ fn main() {
         "../program",
         BuildArgs {
             // docker: true,
-            // tag: "v6.3.0".to_string(),
+            // tag: "v6.3.1".to_string(),
             output_directory: Some("../elf".to_string()),
             elf_name: Some("sp1-helios-elf".to_string()),
             ..Default::default()
