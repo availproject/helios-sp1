@@ -27,6 +27,11 @@ pub fn main() {
         forks,
     } = serde_cbor::from_slice(&encoded_inputs).expect("Failed to decode cbor");
 
+    assert!(
+        store.next_sync_committee.is_none(),
+        "next_sync_committee must be None at entry; it is set only by a verified sync committee update"
+    );
+
     let start_sync_committee_hash = store.current_sync_committee.tree_hash_root();
     let prev_header: B256 = store.finalized_header.beacon().tree_hash_root();
     let prev_head = store.finalized_header.beacon().slot;
