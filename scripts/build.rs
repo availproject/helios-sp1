@@ -5,8 +5,8 @@ fn main() {
     build_program_with_args(
         "../program",
         BuildArgs {
-            // docker: true,
-            // tag: "v6.3.1".to_string(),
+            docker: true,
+            tag: "v6.3.1".to_string(),
             output_directory: Some("../elf".to_string()),
             elf_name: Some("sp1-helios-elf".to_string()),
             ..Default::default()
