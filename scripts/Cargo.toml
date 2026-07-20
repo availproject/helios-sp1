@@ -10,7 +10,7 @@ name = "vkey"
 path = "./bin/vkey.rs"
 
 [dependencies]
-sp1-sdk = { workspace = true }
+sp1-sdk = { workspace = true, features = ["blocking"] }
 anyhow = { workspace = true }
 
 [build-dependencies]
