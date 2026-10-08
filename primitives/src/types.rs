@@ -13,6 +13,11 @@ pub struct ProofInputs {
     pub store: LightClientStore<MainnetConsensusSpec>,
     pub genesis_root: B256,
     pub forks: Forks,
+    /// RLP-encoded execution block header of the finalized beacon block. Required once the
+    /// finalized header is a Gloas header, which only commits to the execution block hash;
+    /// ignored before Gloas, where the light-client header carries the execution payload header.
+    #[serde(default)]
+    pub execution_block_header: Option<Vec<u8>>,
 }
 
 #[derive(serde::Serialize, serde::Deserialize, Debug)]

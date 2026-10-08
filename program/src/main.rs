@@ -6,6 +6,7 @@ use alloy_sol_types::SolValue;
 use helios_consensus_core::{
     apply_finality_update, apply_update, verify_finality_update, verify_update,
 };
+use sp1_helios_primitives::execution::execution_state_root;
 use sp1_helios_primitives::types::{ProofInputs, ProofOutputs};
 use tree_hash::TreeHash;
 
@@ -25,6 +26,7 @@ pub fn main() {
         mut store,
         genesis_root,
         forks,
+        execution_block_header,
     } = serde_cbor::from_slice(&encoded_inputs).expect("Failed to decode cbor");
 
     assert!(
@@ -88,12 +90,11 @@ pub fn main() {
         "New head is not greater than previous head."
     );
 
+    let execution_state_root =
+        execution_state_root(&store.finalized_header, execution_block_header.as_deref());
+
     let proof_outputs = ProofOutputs {
-        executionStateRoot: *store
-            .finalized_header
-            .execution()
-            .expect("Execution payload doesn't exist.")
-            .state_root(),
+        executionStateRoot: execution_state_root,
         newHeader: header,
         nextSyncCommitteeHash: next_sync_committee_hash,
         newHead: U256::from(new_head),
